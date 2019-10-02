@@ -16,7 +16,7 @@ include 'db_connect.php';
 //        last_name=`$last_name`,
 //        phone_number=`$phone_number`,
 //        password=`$password`
-//        WHERE id = $update_id;";
+//        WHERE id = $update_id;";        s    ss
 
 
 
