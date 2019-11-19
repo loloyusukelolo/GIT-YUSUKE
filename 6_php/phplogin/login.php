@@ -1,6 +1,6 @@
 <?php 
 include 'db_connect.php';
-session_start();
+// session_start();
 
 
 $_SESSION["is_logged_in"];
@@ -16,7 +16,7 @@ if (isset($_SESSION["is_logged_in"])) {
     return fales;
 
 }
-
+// var_dump($_POST);
 
 
 if (isset($_POST["user_email"])) {
@@ -32,14 +32,17 @@ if (isset($_POST["user_email"])) {
     and
     password = '$password'
     ";
-    var_dump($sql);
+    //var_dump($sql);
     
     $result = mysqli_query($CONNECTION, $sql);
 
     $num_rows = mysqli_num_rows($result);
 
-    var_dump($num_rows );
+    //var_dump($num_rows );
+    var_dump($sql);
+    //var_dump($CONNECTION);
 
+    var_dump($result);
     if ($num_rows > 0) {
        $_SESSION["is_logged_in"] = true;
        header("Location: home.php");

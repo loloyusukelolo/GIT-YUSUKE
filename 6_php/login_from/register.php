@@ -30,12 +30,12 @@ include 'db_connect.php';
 
 if (isset($_POST["user_first_name"]) &&
     isset($_POST["user_last_name"]) &&
-    isset($_POST["user_phone"]) &&
+    isset($_POST["user_email"]) &&
     isset($_POST["user_password"]) 
 ) {
     $first_name = $_POST['user_first_name'];
     $last_name = $_POST['user_last_name'];
-    $phone_number = $_POST['user_phone'];
+    $user_email = $_POST['user_email'];
     $password = $_POST['user_password'];
     $c_password = $_POST['confirm_password'];
 
@@ -44,10 +44,11 @@ if ($password == $c_password) {
    $sql ="
     INSERT INTO
     `employees2`
-    (`id`,`first_name`,`last_name`,`phone_number`,`password`) 
+    (`id`,`first_name`,`last_name`,`email_address`,`password`) 
     VALUES 
-(NULL, '$first_name','$last_name','$phone_number','$password');
+(NULL, '$first_name','$last_name','$user_email','$password');
 ";
+
 $insert_result = mysqli_query($CONNECTION, $sql);
 var_dump($insert_result);
 var_dump(mysqli_error($CONNECTION));
@@ -94,7 +95,7 @@ die();
             </div>
             <input type="text" name ="user_first_name" class="form-control" placeholder="Firstname" required>
             <input type="text" name ="user_last_name" class="form-control" placeholder="Lastname" required>
-            <input type="text" name ="user_phone" class="form-control" placeholder="Email" required>
+            <input type="text" name ="user_email" class="form-control" placeholder="Email" required>
             <input type="password" name ="user_password" class="form-control" placeholder="Password" required>
             <input type="password" name ="confirm_password" class="form-control" placeholder="Confirm Password" required>
 
